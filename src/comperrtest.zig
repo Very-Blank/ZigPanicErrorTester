@@ -40,7 +40,7 @@ pub fn expectCompileError(code: []const u8) !void {
     }
 }
 
-test "Testing functionality" {
+test "Testing panics" {
     try expectCompileError(
         \\test "This should panic!" {
         \\    @compileError("hell");
@@ -48,9 +48,23 @@ test "Testing functionality" {
     );
 
     try expectCompileError(
+        \\test "This should panic!" {
+        \\    if(true){
+        \\        unreachable;
+        \\    } else{
+        \\
+        \\    }
+        \\}
+    );
+}
+
+test "Valid code" {
+    expectCompileError(
         \\const std = @import("std");
         \\test "This shouldn't panic!" {
         \\    std.debug.print("this doesn't fail", .{});
         \\}
-    );
+    ) catch return;
+
+    return error.TestInvalid;
 }
