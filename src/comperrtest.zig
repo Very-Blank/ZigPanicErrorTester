@@ -66,5 +66,5 @@ test "Valid code" {
         \\}
     ) catch return;
 
-    return error.TestInvalid;
+    return error.TestFailed;
 }
