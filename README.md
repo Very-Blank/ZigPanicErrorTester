@@ -1,1 +1,1 @@
-This code is bad, but it works just a band aid fix before [Issue 513](https://github.com/ziglang/zig/issues/513) comes. Also this test is very slow as you might expect.
+This code is bad, but it works just a band aid fix before [Issue 513](https://github.com/ziglang/zig/issues/513) comes. Also this test is very slow as you might expect. If you want a proper solution checkout [zig-recover](https://github.com/dimdin/zig-recover), this however comes with it's own "downsides".
